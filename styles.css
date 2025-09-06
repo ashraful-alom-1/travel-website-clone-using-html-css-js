@@ -1,0 +1,1676 @@
+/* ============================================= */
+/* GLOBAL STYLES AND VARIABLES */
+/* ============================================= */
+
+/* CSS variables for consistent theming and easy maintenance */
+:root {
+    --primary-color: #2c7873;       /* Main brand color - used for buttons, headings */
+    --secondary-color: #f4a261;     /* Secondary accent color */
+    --accent-color: #e76f51;        /* Highlight color for important elements */
+    --text-color: #333;             /* Main text color */
+    --text-light: #666;             /* Lighter text for less important content */
+    --text-on-primary: #ffffff;     /* Text color when on primary color background */
+    --bg-light: #f8f9fa;            /* Light background color for sections */
+    --bg-dark: #264653;             /* Dark background for footer */
+    --section-padding: 80px;        /* Standard padding between sections */
+    --container-width: 1200px;      /* Max width of content containers */
+    --font-main: 'Poppins', sans-serif; /* Primary font family */
+    --font-size-base: 16px;         /* Base font size */
+}
+
+/* Reset default browser styles and set box-sizing for easier layout */
+* {
+    margin: 0;                      /* Remove default margins */
+    padding: 0;                     /* Remove default padding */
+    box-sizing: border-box;         /* Include padding/border in element's total width/height */
+    font-family: var(--font-main);  /* Apply consistent font family */
+}
+
+/* Example: With box-sizing: border-box, a div with width: 100px and padding: 20px 
+   will still be 100px wide (content becomes 60px + 20px padding each side) */
+
+/* Base body styles */
+body {
+    line-height: 1.6;              /* Comfortable line spacing for readability */
+    color: var(--text-color);      /* Apply main text color */
+}
+
+/* Container class for consistent content width and centering */
+.container {
+    width: 90%;                    /* Take up 90% of parent width */
+    max-width: var(--container-width); /* Don't exceed max container width */
+    margin: 0 auto;                /* Center the container */
+    padding: 0 15px;               /* Add padding to prevent content touching edges */
+}
+
+/* Base button styles - can be extended with modifier classes */
+.btn {
+    display: inline-block;         /* Allow setting width/height */
+    padding: 12px 30px;            /* Comfortable clickable area */
+    background: var(--primary-color); /* Primary color background */
+    color: var(--text-on-primary); /* Text color that contrasts with primary */
+    text-decoration: none;         /* Remove underline */
+    border-radius: 5px;            /* Slightly rounded corners */
+    transition: all 0.5s;          /* Smooth hover transitions */
+    border: none;                  /* Remove default button border */
+    cursor: pointer;               /* Change cursor to pointer */
+    font-weight: 500;              /* Medium font weight */
+}
+
+/* Button hover state */
+.btn:hover {
+    background: #1e524d;           /* Darker shade of primary color */
+    transform: translateY(-3px);   /* Slight lift effect */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Example: These button styles create a consistent, interactive button that 
+   provides visual feedback when hovered */
+
+/* Standard section spacing */
+section {
+    padding: var(--section-padding) 0; /* Vertical padding using variable */
+}
+
+
+
+/* ============================================= */
+/* HEADER STYLES */
+/* ============================================= */
+
+/* Fixed header that stays at top of viewport */
+header {
+    background-color: transparent; /* Start transparent (will change on scroll) */
+    position: fixed;              /* Fixed positioning */
+    width: 100%;                  /* Full width */
+    z-index: 1000;                /* Ensure header stays above other content */
+    padding: 20px 0;              /* Vertical padding */
+    transition: all 0.5s ease;    /* Smooth transition for style changes */
+}
+
+/* Header style when page is scrolled */
+header.scrolled {
+    background-color: rgba(255, 255, 255, 0.98); /* Semi-transparent white */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);   /* Subtle shadow */
+    padding: 15px 0;              /* Slightly reduced padding */
+}
+
+/* Navbar flex container */
+.navbar {
+    display: flex;                /* Use flexbox for layout */
+    justify-content: space-between; /* Space between logo and nav items */
+    align-items: center;          /* Vertically center items */
+    position: relative;           /* Positioning context for dropdowns */
+}
+
+/* Logo styling */
+.logo {
+    margin-right: auto;           /* Push nav items to the right */
+    margin-left: -25px;           /* Optical alignment adjustment */
+    position: relative;           /* Positioning context */
+}
+
+/* Logo image */
+.logo img {
+    height: 42px;                 /* Fixed height */
+    width: auto;                  /* Maintain aspect ratio */
+    transition: all 0.5s ease;    /* Smooth hover transitions */
+}
+
+/* Logo hover effect */
+.logo:hover img {
+    opacity: 0.9;                 /* Slightly transparent */
+    transform: scale(1.0);        /* Subtle scale effect */
+}
+
+/* Navigation links container */
+.nav-links {
+    display: flex;                /* Horizontal layout */
+    list-style: none;             /* Remove bullet points */
+    margin: 0;                    /* Remove default margins */
+    padding: 0;                   /* Remove default padding */
+}
+
+/* Individual nav items */
+.nav-links li {
+    margin-left: 28px;            /* Space between nav items */
+    position: relative;           /* For dropdown positioning */
+}
+
+/* Nav link styling */
+.nav-links a {
+    text-decoration: none;        /* Remove underline */
+    color: var(--text-color);     /* Text color */
+    font-weight: 500;             /* Medium weight */
+    font-size: 1rem;              /* Base font size */
+    transition: all 0.5s ease;    /* Smooth transitions */
+    padding: 5px 0;               /* Clickable area padding */
+    position: relative;           /* For underline effect */
+}
+
+/* Nav link hover state */
+.nav-links a:hover {
+    color: var(--primary-color);  /* Change to primary color */
+}
+
+/* Active nav link styling */
+.nav-links li a.active {
+    color: var(--primary-color);  /* Primary color */
+    font-weight: 600;             /* Bold weight */
+}
+
+/* Active nav link underline effect */
+.nav-links li a.active::after {
+    content: '';                  /* Required for pseudo-element */
+    position: absolute;           /* Position relative to link */
+    bottom: 0;                    /* Align to bottom */
+    left: 0;                      /* Start from left */
+    width: 100%;                  /* Full width */
+    height: 2px;                  /* Thin line */
+    background-color: var(--primary-color); /* Primary color */
+}
+
+/* Example: The active link indicator helps users know which page they're on by
+   showing both a color change and an underline for the current section */
+
+/* Dropdown menu styles */
+.dropdown-content {
+    background: white;            /* White background */
+    min-width: 200px;             /* Minimum width */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 8px;           /* Rounded corners */
+    padding: 8px 0;               /* Vertical padding */
+    display: none;                /* Hidden by default */
+    position: absolute;           /* Position relative to nav item */
+    z-index: 100;                 /* Ensure it appears above other content */
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;               /* Show dropdown */
+    animation: fadeIn 0.5s ease-out; /* Fade-in animation */
+}
+
+/* Dropdown link styles */
+.dropdown-content a {
+    display: block;               /* Full-width clickable area */
+    padding: 12px 20px;           /* Comfortable padding */
+    color: var(--text-color);     /* Text color */
+    text-decoration: none;        /* No underline */
+    font-size: 0.95rem;           /* Slightly smaller font */
+    transition: all 0.5s ease;    /* Smooth transitions */
+    margin: 4px 0;                /* Space between items */
+}
+
+/* Dropdown link hover state */
+.dropdown-content a:hover {
+    background-color: var(--bg-light); /* Light background */
+    color: var(--primary-color);  /* Primary color */
+    transform: translateX(5px);   /* Slight movement */
+}
+
+/* Dropdown fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); } /* Start hidden and slightly down */
+    to { opacity: 1; transform: translateY(0); }      /* Fade in and move to normal position */
+}
+
+/* Dropdown arrow icon */
+.dropdown i.fa-chevron-down {
+    margin-left: 6px;             /* Space between text and icon */
+    transition: transform 0.5s;   /* Smooth rotation */
+}
+
+/* Rotate arrow when dropdown is open */
+.dropdown:hover i.fa-chevron-down {
+    transform: rotate(180deg);    /* Upside down */
+}
+
+/* Auth buttons container */
+.auth-buttons {
+    display: flex;                /* Horizontal layout */
+    gap: 12px;                    /* Space between buttons */
+    margin-left: 25px;            /* Space from nav links */
+}
+
+/* Signup button - extends .btn */
+.btn-signup {
+    background: var(--primary-color); /* Primary color */
+    color: var(--text-on-primary); /* White text */
+}
+
+/* Login button - extends .btn */
+.btn-login {
+    background: transparent;      /* Transparent background */
+    border: 1px solid var(--primary-color); /* Primary color border */
+    color: var(--primary-color);  /* Primary color text */
+}
+
+/* Login button hover */
+.btn-login:hover {
+    background: rgba(44, 120, 115, 0.08); /* Very light primary color tint */
+}
+
+/* Mobile menu button */
+.hamburger {
+    display: none;                /* Hidden by default (shown on mobile) */
+    font-size: 1.5rem;            /* Icon size */
+    cursor: pointer;              /* Pointer cursor */
+    color: var(--primary-color);  /* Primary color */
+    margin-left: 15px;            /* Spacing */
+}
+
+/* Header styles when over hero section */
+.hero + header .nav-links a,
+.hero + header .logo,
+.hero + header .hamburger {
+    color: white;                 /* White text for contrast */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Text shadow for readability */
+}
+
+/* Invert logo color over hero */
+.hero + header .logo img {
+    filter: brightness(0) invert(1); /* Make white logo */
+}
+
+/* Active link styles over hero */
+.hero + header .nav-links a.active {
+    color: white;                 /* White text */
+}
+
+/* Active link underline over hero */
+.hero + header .nav-links a.active::after {
+    background-color: white;      /* White underline */
+}
+
+/* Login button styles over hero */
+.hero + header .btn-login {
+    border-color: white;          /* White border */
+    color: white;                 /* White text */
+}
+
+
+
+
+/* ============================================= */
+/* HERO SECTION */
+/* ============================================= */
+
+/* Full viewport height hero section */
+.hero {
+    height: 100vh;                /* Full viewport height */
+    background: url('hike-8264218.jpg') no-repeat center center/cover; /* Background image */
+    display: flex;                /* Flexbox for centering content */
+    align-items: center;          /* Vertical center */
+    position: relative;           /* For overlay positioning */
+    color: white;                 /* White text */
+    text-align: center;           /* Center align text */
+}
+
+/* Dark overlay for better text readability */
+.hero::before {
+    content: '';                  /* Required for pseudo-element */
+    position: absolute;           /* Cover entire hero */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
+}
+
+/* Hero content container */
+.hero-content {
+    position: relative;           /* Above overlay */
+    z-index: 1;                   /* Ensure content appears above overlay */
+    max-width: 800px;             /* Optimal line length */
+    margin: 0 auto;               /* Center horizontally */
+    padding: 0 20px;              /* Prevent touching edges */
+}
+
+/* Hero heading */
+.hero h1 {
+    font-size: 3.5rem;            /* Large text */
+    margin-bottom: 20px;          /* Space below */
+    line-height: 1.2;             /* Comfortable line spacing */
+}
+
+/* Hero paragraph */
+.hero p {
+    font-size: 1.2rem;            /* Slightly larger text */
+    margin-bottom: 30px;          /* Space below */
+    opacity: 0.9;                 /* Slightly transparent */
+}
+
+
+
+
+/* ============================================= */
+/* ABOUT SECTION */
+/* ============================================= */
+
+/* About section with light background */
+.about {
+    background: var(--bg-light);  /* Light background */
+    position: relative;           /* For potential decorative elements */
+    overflow: hidden;             /* Hide any overflowing content */
+}
+
+/* About container positioning */
+.about .container {
+    position: relative;           /* For z-index context */
+    z-index: 2;                   /* Above any background elements */
+}
+
+/* Grid layout for about content */
+.about-grid {
+    display: grid;                /* CSS Grid layout */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 60px;                    /* Space between columns */
+    align-items: flex-start;      /* Align items to top */
+}
+
+/* About text content */
+.about-content {
+    position: relative;           /* For read more button positioning */
+    padding-bottom: 60px;         /* Space for button */
+}
+
+/* About section heading */
+.about-content h2 {
+    font-size: 2.5rem;            /* Large heading */
+    color: var(--primary-color);  /* Primary color */
+    margin-bottom: 25px;          /* Space below */
+    line-height: 1.3;             /* Comfortable line spacing */
+    position: relative;           /* For underline effect */
+    padding-bottom: 15px;         /* Space for underline */
+}
+
+/* Heading underline effect */
+.about-content h2::after {
+    content: '';                  /* Required for pseudo-element */
+    position: absolute;           /* Position under heading */
+    left: 0;
+    bottom: 0;
+    width: 80px;                  /* Length of underline */
+    height: 4px;                  /* Thickness */
+    background: var(--secondary-color); /* Secondary color */
+    border-radius: 2px;           /* Slightly rounded */
+}
+
+/* About paragraph text */
+.about-content p {
+    color: var(--text-light);     /* Lighter text color */
+    margin-bottom: 20px;          /* Space between paragraphs */
+    font-size: 1rem;              /* Base font size */
+    line-height: 1.8;             /* Comfortable line spacing */
+}
+
+/* Read more button */
+.read-more-btn {
+    position: absolute;           /* Fixed position at bottom */
+    bottom: 0;
+    left: 0;
+    background: var(--primary-color); /* Primary color */
+    color: white;                 /* White text */
+    border: none;                 /* No border */
+    padding: 12px 30px;           /* Comfortable size */
+    border-radius: 5px;           /* Rounded corners */
+    cursor: pointer;              /* Pointer cursor */
+    transition: all 0.5s ease;    /* Smooth transitions */
+    font-weight: 500;             /* Medium weight */
+    box-shadow: 0 5px 15px rgba(44, 120, 115, 0.2); /* Subtle shadow */
+}
+
+/* Read more button hover */
+.read-more-btn:hover {
+    background: #1e524d;          /* Darker shade */
+    transform: translateY(-3px);  /* Lift effect */
+    box-shadow: 0 8px 20px rgba(44, 120, 115, 0.3); /* Larger shadow */
+}
+
+/* Hidden content that expands when "read more" is clicked */
+.more-text {
+    max-height: 0;                /* Start collapsed */
+    overflow: hidden;             /* Hide overflowing content */
+    transition: max-height 0.5s ease-out; /* Smooth expand animation */
+    padding-bottom: 0;            /* No padding when collapsed */
+}
+
+/* Expanded state for hidden content */
+.more-text.show {
+    max-height: 2000px;           /* Sufficient space for content */
+    padding-bottom: 30px;         /* Bottom padding */
+}
+
+/* Subheadings in expanded content */
+.more-text h3 {
+    font-size: 1.5rem;            /* Medium heading size */
+    color: var(--primary-color);  /* Primary color */
+    margin: 25px 0 15px;          /* Spacing */
+    position: relative;           /* For underline effect */
+    padding-bottom: 10px;         /* Space for underline */
+}
+
+/* Subheading underline */
+.more-text h3::after {
+    content: '';                  /* Required for pseudo-element */
+    position: absolute;           /* Position under heading */
+    left: 0;
+    bottom: 0;
+    width: 50px;                  /* Length */
+    height: 3px;                  /* Thickness */
+    background: rgba(44, 120, 115, 0.3); /* Semi-transparent primary */
+    border-radius: 2px;           /* Slightly rounded */
+}
+
+/* List in expanded content */
+.more-text ul {
+    margin: 20px 0;               /* Spacing */
+    padding-left: 20px;           /* Indent */
+}
+
+/* List items */
+.more-text li {
+    margin-bottom: 12px;          /* Space between items */
+    color: var(--text-light);     /* Lighter text */
+    position: relative;           /* For icon positioning */
+    padding-left: 25px;           /* Space for icon */
+}
+
+/* Custom list bullet icon */
+.more-text li::before {
+    content: '\f058';             /* Font Awesome check icon */
+    font-family: 'Font Awesome 6 Free'; /* Icon font */
+    font-weight: 900;             /* Solid style */
+    color: var(--secondary-color); /* Secondary color */
+    position: absolute;           /* Position in left padding */
+    left: 0;
+    top: 2px;
+}
+
+/* Stats cards container */
+.about-stats {
+    display: flex;                /* Flex layout */
+    flex-direction: column;       /* Vertical stacking */
+    gap: 30px;                    /* Space between cards */
+    position: sticky;             /* Sticks when scrolling */
+    top: 100px;                   /* Stick position */
+}
+
+/* Individual stat card */
+.stat-card {
+    background: white;            /* White background */
+    border-radius: 12px;          /* Rounded corners */
+    padding: 35px;                /* Comfortable padding */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+    position: relative;           /* For decorative elements */
+    overflow: hidden;             /* Hide overflowing effects */
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+    border: 1px solid rgba(44, 120, 115, 0.1); /* Faint border */
+}
+
+/* Stat card hover effect */
+.stat-card:hover {
+    transform: translateY(-10px); /* Lift up */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12); /* Larger shadow */
+    border-color: rgba(44, 120, 115, 0.3); /* More visible border */
+}
+
+/* Stat icon container */
+.stat-icon {
+    width: 70px;                  /* Fixed size */
+    height: 70px;
+    background: rgba(44, 120, 115, 0.1); /* Very light primary color */
+    border-radius: 50%;           /* Circle */
+    display: flex;                /* Center icon */
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;          /* Space below */
+    color: var(--primary-color);  /* Primary color */
+    font-size: 28px;              /* Icon size */
+    transition: all 0.5s ease;    /* Smooth transitions */
+}
+
+/* Stat icon hover effect */
+.stat-card:hover .stat-icon {
+    background: var(--primary-color); /* Primary color background */
+    color: white;                 /* White icon */
+    transform: rotate(15deg) scale(1.1); /* Slight rotation and scale */
+}
+
+/* Stat content heading */
+.stat-content h3 {
+    font-size: 1.5rem;            /* Medium size */
+    margin-bottom: 15px;          /* Space below */
+    color: var(--primary-color);  /* Primary color */
+    position: relative;           /* For underline */
+    padding-bottom: 10px;         /* Space for underline */
+}
+
+/* Stat heading underline */
+.stat-content h3::after {
+    content: '';                  /* Required for pseudo-element */
+    position: absolute;           /* Position under heading */
+    left: 0;
+    bottom: 0;
+    width: 40px;                  /* Length */
+    height: 3px;                  /* Thickness */
+    background: var(--secondary-color); /* Secondary color */
+}
+
+/* Stat description text */
+.stat-content p {
+    color: var(--text-light);     /* Lighter text */
+    margin-bottom: 20px;          /* Space below */
+    font-size: 1rem;              /* Base size */
+    line-height: 1.7;             /* Comfortable spacing */
+}
+
+/* Highlights section in stat card */
+.stat-highlights {
+    margin-top: 20px;             /* Space above */
+    padding-top: 20px;            /* Space below border */
+    border-top: 1px dashed rgba(44, 120, 115, 0.2); /* Dashed border */
+}
+
+/* Individual highlight tag */
+.highlight {
+    display: inline-block;        /* Inline but can have padding */
+    background: rgba(244, 162, 97, 0.1); /* Very light secondary color */
+    color: var(--secondary-color); /* Secondary color text */
+    padding: 8px 15px;            /* Comfortable size */
+    border-radius: 30px;          /* Pill shape */
+    font-size: 0.9rem;            /* Slightly smaller */
+    font-weight: 500;             /* Medium weight */
+}
+
+/* Decorative wave at bottom of stat card */
+.stat-wave {
+    position: absolute;           /* Position at bottom */
+    bottom: 0;
+    left: 0;
+    width: 100%;                  /* Full width */
+    height: 5px;                  /* Thin */
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); /* Gradient */
+    opacity: 0;                   /* Hidden by default */
+    transition: opacity 0.5s ease; /* Fade in */
+}
+
+/* Show wave on hover */
+.stat-card:hover .stat-wave {
+    opacity: 1;                   /* Fully visible */
+}
+
+/* About image container */
+.about-img {
+    position: relative;           /* For hover effect */
+    border-radius: 12px;          /* Rounded corners */
+    overflow: hidden;             /* Hide image overflow */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-top: 30px;             /* Space above */
+}
+
+/* About image */
+.about-img img {
+    width: 100%;                  /* Fill container */
+    height: auto;                 /* Maintain aspect ratio */
+    display: block;               /* Remove extra space under image */
+    transition: transform 0.5s ease; /* Smooth zoom */
+}
+
+/* Image hover effect */
+.about-img:hover img {
+    transform: scale(1.05);       /* Slight zoom */
+}
+
+
+
+
+/* ============================================= */
+/* SERVICES SECTION */
+/* ============================================= */
+
+/* Services section with light background */
+.services {
+    background: var(--bg-light);  /* Light background */
+    text-align: center;           /* Center align content */
+}
+
+/* Section title styling */
+.section-title {
+    text-align: center;           /* Center align */
+    margin-bottom: 50px;          /* Space below */
+}
+
+/* Section heading */
+.section-title h2 {
+    font-size: 2.5rem;            /* Large size */
+    color: var(--primary-color);  /* Primary color */
+    margin-bottom: 15px;          /* Space below */
+}
+
+/* Section subtitle */
+.section-title p {
+    color: var(--text-light);     /* Lighter text */
+    max-width: 700px;             /* Optimal line length */
+    margin: 0 auto;               /* Center */
+}
+
+/* Destinations grid */
+.destinations {
+    display: grid;                /* CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 30px;                    /* Space between cards */
+    margin-top: 50px;             /* Space above */
+}
+
+/* Destination card */
+.destination-card {
+    background: white;            /* White background */
+    border-radius: 10px;          /* Rounded corners */
+    overflow: hidden;             /* Hide image overflow */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.5s, box-shadow 0.5s; /* Smooth transitions */
+}
+
+/* Card hover effect */
+.destination-card:hover {
+    transform: translateY(-10px); /* Lift up */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Larger shadow */
+}
+
+/* Destination image container */
+.destination-img {
+    height: 250px;                /* Fixed height */
+    overflow: hidden;             /* Hide overflow */
+}
+
+/* Destination image */
+.destination-img img {
+    width: 100%;                  /* Fill container */
+    height: 100%;                 /* Fill container */
+    object-fit: cover;            /* Crop to fill */
+    transition: transform 0.5s;   /* Smooth zoom */
+}
+
+/* Image hover effect */
+.destination-card:hover .destination-img img {
+    transform: scale(1.1);        /* Slight zoom */
+}
+
+/* Destination info */
+.destination-info {
+    padding: 25px;                /* Comfortable padding */
+    text-align: left;             /* Left align text */
+}
+
+/* Destination name */
+.destination-info h3 {
+    font-size: 1.5rem;            /* Medium size */
+    margin-bottom: 10px;          /* Space below */
+    color: var(--primary-color);  /* Primary color */
+}
+
+/* Destination description */
+.destination-info p {
+    color: var(--text-light);     /* Lighter text */
+    margin-bottom: 15px;          /* Space below */
+    font-size: 0.95rem;           /* Slightly smaller */
+}
+
+/* Price styling */
+.price {
+    font-size: 1.2rem;            /* Larger size */
+    font-weight: 700;             /* Bold */
+    color: var(--primary-color);  /* Primary color */
+}
+
+
+
+
+/* ============================================= */
+/* BLOG SECTION STYLES */
+/* ============================================= */
+
+/* Main blog section container */
+.blog {
+    background: var(--bg-light);  /* Light background color from variables */
+    padding: var(--section-padding) 0; /* Consistent section padding */
+}
+
+/* Container for all blog posts in grid layout */
+.blog-posts {
+    display: grid; /* CSS Grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 30px; /* Space between cards */
+    margin-top: 50px; /* Space above grid */
+}
+
+/* Individual blog card styling */
+.blog-card {
+    background: white; /* White background for cards */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Hide overflowing content */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth hover effects */
+    display: flex; /* Flex layout for proper content distribution */
+    flex-direction: column; /* Stack children vertically */
+    height: 100%; /* Ensure consistent height */
+}
+
+/* Card hover effects */
+.blog-card:hover {
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+/* Blog image container */
+.blog-img {
+    height: 200px; /* Fixed height for images */
+    overflow: hidden; /* Hide overflow */
+    position: relative; /* For any overlay effects */
+}
+
+/* Blog image styling */
+.blog-img img {
+    width: 100%; /* Full width of container */
+    height: 100%; /* Full height of container */
+    object-fit: cover; /* Crop to fill container */
+    transition: transform 0.5s ease; /* Smooth zoom transition */
+}
+
+/* Image zoom effect on card hover */
+.blog-card:hover .blog-img img {
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Container for text content */
+.blog-info {
+    padding: 25px; /* Inner spacing */
+    flex-grow: 1; /* Allow content to expand */
+    display: flex; /* Flex layout */
+    flex-direction: column; /* Stack content vertically */
+}
+
+/* Blog date styling */
+.blog-date {
+    color: var(--primary-color); /* Primary color for date */
+    font-size: 0.9rem; /* Slightly smaller text */
+    font-weight: 500; /* Medium weight */
+    margin-bottom: 10px; /* Space below date */
+    display: block; /* Ensure it's block level */
+}
+
+/* Blog title styling */
+.blog-info h3 {
+    font-size: 1.3rem; /* Medium heading size */
+    margin: 0 0 15px 0; /* Spacing around title */
+    color: var(--text-color); /* Main text color */
+    line-height: 1.4; /* Comfortable line spacing */
+}
+
+/* Blog excerpt text */
+.blog-excerpt {
+    color: var(--text-light); /* Lighter text color */
+    margin-bottom: 20px; /* Space below excerpt */
+    font-size: 0.95rem; /* Slightly smaller text */
+    line-height: 1.6; /* Comfortable reading line height */
+    transition: all 0.5s ease; /* Smooth transition for expansion */
+    overflow: hidden; /* Hide overflow during transition */
+}
+
+/* Full content container (initially hidden) */
+.blog-full-content {
+    max-height: 0; /* Start collapsed */
+    opacity: 0; /* Start invisible */
+    overflow: hidden; /* Hide overflow */
+    transition: all 0.5s ease; /* Smooth expansion */
+    color: var(--text-light); /* Lighter text color */
+}
+
+/* Expanded state for full content */
+.blog-full-content.expanded {
+    max-height: 1000px; /* Enough for content (adjust as needed) */
+    opacity: 1; /* Fully visible */
+    padding-top: 15px; /* Space above content */
+    border-top: 1px solid rgba(0, 0, 0, 0.1); /* Subtle separator */
+    margin-top: 15px; /* Space above border */
+}
+
+/* Paragraphs in full content */
+.blog-full-content p {
+    margin-bottom: 15px; /* Space between paragraphs */
+    font-size: 0.95rem; /* Consistent with excerpt */
+    line-height: 1.6; /* Comfortable reading */
+    animation: fadeInUp 0.5s ease; /* Smooth paragraph appearance */
+}
+
+/* Read More button styling */
+.btn-read-more {
+    padding: 8px 20px; /* Comfortable click area */
+    background: transparent; /* Transparent background */
+    border: 1px solid var(--primary-color); /* Primary color border */
+    color: var(--primary-color); /* Primary color text */
+    font-size: 0.9rem; /* Slightly smaller text */
+    margin-top: auto; /* Push to bottom of card */
+    cursor: pointer; /* Pointer cursor */
+    transition: all 0.5s ease; /* Smooth hover transition */
+    align-self: flex-start; /* Align left */
+    border-radius: 4px; /* Slightly rounded corners */
+}
+
+/* Read More button hover state */
+.btn-read-more:hover {
+    background: var(--primary-color); /* Primary color background */
+    color: var(--text-on-primary); /* White text */
+}
+
+/* View All container */
+.view-all {
+    text-align: center; /* Center align */
+    margin-top: 50px; /* Space above */
+}
+
+/* Animation for smooth text appearance */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+/* ============================================= */
+/* TESTIMONIALS SECTION */
+/* ============================================= */
+
+/* Testimonials section with light background */
+.testimonials {
+    text-align: center;           /* Center align content */
+    background: var(--bg-light);  /* Light background */
+}
+
+/* Testimonial slider container */
+.testimonial-slider {
+    max-width: 800px;             /* Optimal width */
+    margin: 0 auto;               /* Center */
+    position: relative;           /* For positioning dots */
+}
+
+/* Individual testimonial */
+.testimonial {
+    background: white;            /* White background */
+    padding: 40px;                /* Comfortable padding */
+    border-radius: 10px;          /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Very subtle shadow */
+    margin: 20px;                 /* Space around */
+    display: none;                /* Hidden by default */
+}
+
+/* Active testimonial */
+.testimonial.active {
+    display: block;               /* Visible */
+    animation: fadeIn 0.5s ease-out; /* Fade in animation */
+}
+
+/* Testimonial author image */
+.testimonial img {
+    width: 80px;                  /* Fixed size */
+    height: 80px;
+    border-radius: 50%;           /* Circle */
+    object-fit: cover;            /* Crop to fill */
+    margin-bottom: 20px;          /* Space below */
+    border: 3px solid var(--primary-color); /* Primary color border */
+}
+
+/* Author name */
+.testimonial h4 {
+    font-size: 1.2rem;            /* Medium size */
+    margin-bottom: 5px;           /* Small space below */
+    color: var(--primary-color);  /* Primary color */
+}
+
+/* Author position */
+.testimonial p.position {
+    color: var(--text-light);     /* Lighter text */
+    margin-bottom: 20px;          /* Space below */
+    font-size: 0.9rem;            /* Smaller size */
+}
+
+/* Star rating */
+.testimonial .rating {
+    color: var(--secondary-color); /* Secondary color */
+    margin-bottom: 20px;          /* Space below */
+    font-size: 1.1rem;            /* Slightly larger */
+}
+
+/* Testimonial quote */
+.testimonial .quote {
+    font-style: italic;           /* Italic text */
+    color: #555;                  /* Medium text color */
+    line-height: 1.8;             /* Comfortable spacing */
+}
+
+/* Navigation dots */
+.dots {
+    display: flex;                /* Horizontal layout */
+    justify-content: center;      /* Center dots */
+    margin-top: 30px;             /* Space above */
+}
+
+/* Individual dot */
+.dot {
+    width: 12px;                  /* Fixed size */
+    height: 12px;
+    border-radius: 50%;           /* Circle */
+    background: #ddd;             /* Light gray */
+    margin: 0 5px;                /* Space between */
+    cursor: pointer;              /* Pointer cursor */
+    transition: background 0.5s;  /* Smooth color change */
+}
+
+/* Active dot */
+.dot.active {
+    background: var(--primary-color); /* Primary color */
+}
+
+
+
+/* ============================================= */
+/* BOOKING SECTION */
+/* ============================================= */
+
+/* Booking section with light background */
+.booking {
+    padding: 80px 0;             /* Vertical padding */
+    background-color: var(--bg-light); /* Light background */
+}
+
+/* Section title spacing */
+.booking .section-title {
+    margin-bottom: 40px;         /* Reduced space below */
+}
+
+/* Booking tabs */
+.booking-tabs {
+    display: flex;               /* Horizontal layout */
+    justify-content: center;     /* Center tabs */
+    gap: 15px;                   /* Space between */
+    margin-bottom: 30px;         /* Space below */
+    flex-wrap: wrap;             /* Wrap on small screens */
+}
+
+/* Tab button */
+.tab-btn {
+    padding: 12px 25px;          /* Comfortable size */
+    background: transparent;     /* Transparent background */
+    border: 1px solid var(--primary-color); /* Primary color border */
+    color: var(--primary-color); /* Primary color text */
+    border-radius: 5px;          /* Slightly rounded */
+    cursor: pointer;             /* Pointer cursor */
+    transition: all 0.5s ease;   /* Smooth transitions */
+    font-weight: 500;            /* Medium weight */
+}
+
+/* Active/hover tab */
+.tab-btn.active, 
+.tab-btn:hover {
+    background: var(--primary-color); /* Primary color background */
+    color: var(--text-on-primary); /* White text */
+}
+
+/* Booking form */
+.booking-form {
+    display: none;               /* Hidden by default */
+    background: white;           /* White background */
+    padding: 30px;               /* Comfortable padding */
+    border-radius: 10px;         /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 600px;            /* Optimal width */
+    margin: 0 auto;              /* Center */
+}
+
+/* Active booking form */
+.booking-form.active {
+    display: block;              /* Visible */
+    animation: fadeIn 0.5s ease; /* Fade in */
+}
+
+/* Form group spacing */
+.booking-form .form-group {
+    margin-bottom: 20px;         /* Space between fields */
+}
+
+/* Form label */
+.booking-form .form-group label {
+    display: block;              /* New line */
+    margin-bottom: 8px;          /* Space below */
+    font-weight: 500;            /* Medium weight */
+    color: #555;                 /* Medium text color */
+}
+
+/* Form input fields */
+.booking-form input[type="text"],
+.booking-form input[type="date"],
+.booking-form input[type="number"],
+.booking-form select {
+    width: 100%;                 /* Full width */
+    padding: 12px 15px;          /* Comfortable padding */
+    border: 1px solid #ddd;      /* Light border */
+    border-radius: 5px;          /* Slightly rounded */
+    font-size: 1rem;             /* Base size */
+    transition: border 0.5s ease; /* Smooth border change */
+}
+
+/* Hide number input spinners */
+.booking-form input[type="number"]::-webkit-inner-spin-button,
+.booking-form input[type="number"]::-webkit-outer-spin-button {
+    opacity: 1;                  /* Show (default behavior) */
+}
+
+/* Focus state for inputs */
+.booking-form input:focus,
+.booking-form select:focus {
+    border-color: var(--primary-color); /* Primary color border */
+    outline: none;               /* Remove default outline */
+}
+
+/* Hotel options layout */
+.hotel-options {
+    display: flex;               /* Horizontal layout */
+    gap: 15px;                   /* Space between */
+    margin-top: 15px;            /* Space above */
+}
+
+/* Individual hotel option */
+.hotel-option {
+    flex: 1;                     /* Equal width */
+    text-align: center;          /* Center content */
+}
+
+/* Hide radio buttons */
+.hotel-option input {
+    display: none;               /* Hide but keep functionality */
+}
+
+/* Hotel option label */
+.hotel-option label {
+    display: block;              /* Full width */
+    padding: 10px;               /* Comfortable padding */
+    border: 1px solid #ddd;      /* Light border */
+    border-radius: 5px;          /* Slightly rounded */
+    cursor: pointer;             /* Pointer cursor */
+    transition: all 0.5s ease;   /* Smooth transitions */
+}
+
+/* Selected hotel option */
+.hotel-option input:checked + label {
+    border-color: var(--primary-color); /* Primary color border */
+    background-color: rgba(44, 120, 115, 0.08); /* Very light primary color */
+}
+
+/* Cruise packages container */
+.cruise-packages {
+    margin-top: 20px;            /* Space above */
+}
+
+/* Individual cruise package */
+.cruise-package {
+    border: 1px solid #ddd;      /* Light border */
+    border-radius: 5px;          /* Slightly rounded */
+    padding: 15px;               /* Comfortable padding */
+    margin-bottom: 15px;         /* Space between */
+    cursor: pointer;             /* Pointer cursor */
+    transition: all 0.5s ease;   /* Smooth transitions */
+}
+
+/* Cruise package hover */
+.cruise-package:hover {
+    border-color: var(--primary-color); /* Primary color border */
+}
+
+/* Cruise package heading */
+.cruise-package h4 {
+    margin-top: 0;               /* Remove default margin */
+    color: var(--text-color);    /* Main text color */
+}
+
+/* Cruise package text */
+.cruise-package p {
+    margin-bottom: 5px;          /* Small space below */
+    color: var(--text-light);    /* Lighter text */
+}
+
+/* Form submit button */
+.booking-form button {
+    width: 100%;                 /* Full width */
+    margin-top: 20px;            /* Space above */
+}
+
+/* Error message */
+.error-message {
+    color: #e74c3c;             /* Red color for errors */
+    font-size: 0.8rem;          /* Small size */
+    margin-top: 5px;            /* Space above input */
+    display: none;              /* Hidden by default */
+}
+
+/* Error state for inputs */
+.error {
+    border-color: #e74c3c !important; /* Red border */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .booking-tabs {
+        flex-direction: column;  /* Stack tabs vertically */
+        gap: 10px;               /* Smaller gap */
+    }
+    
+    .booking-form {
+        padding: 20px;           /* Reduced padding */
+    }
+    
+    .hotel-options {
+        flex-direction: column;  /* Stack options vertically */
+    }
+}
+
+
+
+/* ============================================= */
+/* FAQ SECTION */
+/* ============================================= */
+
+/* FAQ section with white background */
+.faq {
+    background: white;           /* White background */
+}
+
+/* FAQ grid layout */
+.faq-container {
+    display: grid;               /* CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 30px;                   /* Space between items */
+}
+
+/* FAQ item */
+.faq-item {
+    background: var(--bg-light); /* Light background */
+    padding: 25px;               /* Comfortable padding */
+    border-radius: 10px;         /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Very subtle shadow */
+    transition: transform 0.5s;  /* Smooth lift */
+}
+
+/* FAQ item hover */
+.faq-item:hover {
+    transform: translateY(-5px); /* Slight lift */
+}
+
+/* FAQ question */
+.faq-item h3 {
+    font-size: 1.2rem;           /* Medium size */
+    margin-bottom: 15px;         /* Space below */
+    color: var(--primary-color); /* Primary color */
+}
+
+/* FAQ answer */
+.faq-item p {
+    color: var(--text-light);    /* Lighter text */
+    font-size: 0.95rem;          /* Slightly smaller */
+}
+
+
+
+/* ============================================= */
+/* FOOTER SECTION */
+/* ============================================= */
+
+/* Footer with dark background */
+footer {
+    background: var(--bg-dark);  /* Dark background */
+    color: white;                /* White text */
+    padding: 60px 0 20px;        /* More top padding */
+}
+
+/* Footer content grid */
+.footer-content {
+    display: grid;               /* CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+    gap: 40px;                   /* Space between columns */
+    margin-bottom: 40px;         /* Space above copyright */
+}
+
+/* Footer column heading */
+.footer-column h3 {
+    font-size: 1.3rem;           /* Medium size */
+    margin-bottom: 20px;         /* Space below */
+    position: relative;          /* For underline */
+    padding-bottom: 10px;        /* Space for underline */
+}
+
+/* Footer heading underline */
+.footer-column h3::after {
+    content: '';                 /* Required for pseudo-element */
+    position: absolute;          /* Position under heading */
+    left: 0;
+    bottom: 0;
+    width: 50px;                 /* Length */
+    height: 2px;                 /* Thickness */
+    background: var(--secondary-color); /* Secondary color */
+}
+
+/* Footer text */
+.footer-column p {
+    color: #ddd;                 /* Light gray */
+    margin-bottom: 20px;         /* Space below */
+    font-size: 0.95rem;          /* Slightly smaller */
+}
+
+/* Footer links list */
+.footer-links {
+    list-style: none;            /* Remove bullets */
+}
+
+/* Footer list items */
+.footer-links li {
+    margin-bottom: 10px;         /* Space between */
+    display: flex;               /* For icon alignment */
+    align-items: center;         /* Vertically center */
+}
+
+/* Footer link icons */
+.footer-links i {
+    margin-right: 10px;          /* Space between icon and text */
+    color: var(--secondary-color); /* Secondary color */
+    width: 20px;                 /* Fixed width */
+}
+
+/* Footer links */
+.footer-links a {
+    color: #ddd;                 /* Light gray */
+    text-decoration: none;       /* No underline */
+    transition: color 0.5s;      /* Smooth color change */
+    font-size: 0.95rem;          /* Slightly smaller */
+}
+
+/* Footer link hover */
+.footer-links a:hover {
+    color: var(--secondary-color); /* Secondary color */
+}
+
+/* Social links container */
+.social-links {
+    display: flex;               /* Horizontal layout */
+    gap: 15px;                   /* Space between */
+    margin-top: 20px;            /* Space above */
+}
+
+/* Social link item */
+.social-links a {
+    color: white;                /* White icon */
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent */
+    width: 40px;                 /* Fixed size */
+    height: 40px;
+    border-radius: 50%;          /* Circle */
+    display: flex;               /* Center icon */
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s;        /* Smooth transitions */
+}
+
+/* Social link hover */
+.social-links a:hover {
+    background: var(--secondary-color); /* Secondary color */
+    transform: translateY(-5px); /* Slight lift */
+}
+
+/* Footer bottom (copyright) */
+.footer-bottom {
+    text-align: center;          /* Center text */
+    padding-top: 20px;           /* Space above */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+    color: #aaa;                 /* Light gray */
+    font-size: 0.9rem;           /* Smaller size */
+}
+
+
+
+/* ============================================= */
+/* MODAL STYLES */
+/* ============================================= */
+
+/* Modal overlay */
+.modal {
+    display: none;               /* Hidden by default */
+    position: fixed;             /* Fixed positioning */
+    z-index: 2000;              /* Above other content */
+    left: 0;
+    top: 0;
+    width: 100%;                /* Full width */
+    height: 100%;               /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    overflow: auto;             /* Enable scrolling if needed */
+    animation: fadeIn 0.5s;     /* Fade in animation */
+}
+
+/* Modal content box */
+.modal-content {
+    background-color: #fefefe;  /* Off-white background */
+    margin: 5% auto;            /* Vertical margin, horizontal center */
+    padding: 30px;              /* Comfortable padding */
+    border-radius: 10px;        /* Rounded corners */
+    width: 90%;                /* Responsive width */
+    max-width: 500px;          /* Max width */
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    position: relative;         /* For close button */
+}
+
+/* Close button */
+.close-modal {
+    position: absolute;         /* Position in top-right */
+    right: 20px;
+    top: 20px;
+    color: #aaa;               /* Light gray */
+    font-size: 28px;          /* Larger size */
+    font-weight: bold;        /* Bold weight */
+    cursor: pointer;         /* Pointer cursor */
+}
+
+/* Close button hover */
+.close-modal:hover {
+    color: #333;             /* Darker gray */
+}
+
+/* Modal heading */
+.modal h2 {
+    text-align: center;       /* Center align */
+    margin-bottom: 30px;     /* Space below */
+    color: var(--primary-color); /* Primary color */
+}
+
+/* Form group spacing */
+.form-group {
+    margin-bottom: 20px;     /* Space between fields */
+}
+
+/* Form label */
+.form-group label {
+    display: block;         /* New line */
+    margin-bottom: 8px;     /* Space below */
+    font-weight: 500;       /* Medium weight */
+    color: #555;            /* Medium text color */
+}
+
+/* Form input */
+.form-group input {
+    width: 100%;           /* Full width */
+    padding: 12px;         /* Comfortable padding */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px;    /* Slightly rounded */
+    font-size: 16px;       /* Base size */
+    transition: border 0.5s; /* Smooth border change */
+}
+
+/* Input focus state */
+.form-group input:focus {
+    border-color: var(--primary-color); /* Primary color border */
+    outline: none;          /* Remove default outline */
+}
+
+/* Form helper text */
+.form-group small {
+    display: block;         /* New line */
+    margin-top: 5px;        /* Small space above */
+    color: #777;            /* Light gray */
+    font-size: 0.8rem;      /* Smaller size */
+}
+
+/* Form footer (links below form) */
+.form-footer {
+    text-align: center;     /* Center align */
+    margin-top: 20px;       /* Space above */
+    color: #666;            /* Medium gray */
+}
+
+/* Form footer links */
+.form-footer a {
+    color: var(--primary-color); /* Primary color */
+    text-decoration: none; /* No underline */
+    font-weight: 500;      /* Medium weight */
+}
+
+/* Form footer link hover */
+.form-footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Remember me checkbox */
+.remember {
+    display: flex;          /* Horizontal layout */
+    align-items: center;    /* Vertically center */
+}
+
+/* Checkbox input */
+.remember input {
+    width: auto;           /* Default width */
+    margin-right: 10px;    /* Space between checkbox and label */
+}
+
+
+
+
+/* ============================================= */
+/* RESPONSIVE STYLES */
+/* ============================================= */
+
+/* Large desktop screens */
+@media (max-width: 1200px) {
+    .about-grid {
+        gap: 40px;              /* Reduce gap between columns */
+    }
+}
+
+/* Tablets and small desktops */
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+    
+    .about-stats {
+        position: static;       /* Remove sticky positioning */
+        margin-top: 50px;       /* Add space above */
+        flex-direction: row;    /* Horizontal layout */
+        flex-wrap: wrap;        /* Allow wrapping */
+    }
+    
+    .stat-card {
+        flex: 1 1 300px;       /* Flexible width with minimum */
+    }
+    
+    .about-content h2 {
+        font-size: 2.2rem;     /* Slightly smaller heading */
+    }
+    
+    .nav-links li {
+        margin-left: 20px;      /* Reduce space between nav items */
+    }
+    
+    .auth-buttons {
+        margin-left: 15px;     /* Reduce left margin */
+    }
+    
+    .faq-container {
+        grid-template-columns: 1fr; /* Single column */
+    }
+    
+    .hero h1 {
+        font-size: 2.8rem;     /* Smaller hero heading */
+    }
+}
+
+/* Small tablets and large phones */
+@media (max-width: 768px) {
+    .about-stats {
+        flex-direction: column; /* Stack cards vertically */
+    }
+    
+    .stat-card {
+        flex: 1 1 auto;        /* Full width */
+    }
+    
+    .about-content h2 {
+        font-size: 2rem;       /* Smaller heading */
+    }
+    
+    .stat-icon {
+        width: 60px;           /* Smaller icon */
+        height: 60px;
+        font-size: 24px;       /* Smaller icon size */
+    }
+    
+    /* Mobile navigation */
+    .nav-links {
+        display: none;         /* Hidden by default */
+        position: absolute;    /* Overlay */
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;     /* White background */
+        flex-direction: column; /* Vertical layout */
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    /* Show mobile nav when active */
+    .nav-links.active {
+        display: flex;         /* Visible */
+    }
+
+    /* Mobile nav items */
+    .nav-links li {
+        margin: 15px 0;        /* Vertical spacing */
+    }
+    
+    /* Mobile dropdown */
+    .dropdown-content {
+        position: static;      /* Normal flow */
+        box-shadow: none;      /* No shadow */
+        display: none;         /* Hidden by default */
+        margin-top: 10px;      /* Space above */
+    }
+    
+    /* Show dropdown when parent is hovered */
+    .dropdown:hover .dropdown-content {
+        display: block;        /* Visible */
+    }
+
+    /* Show hamburger menu */
+    .hamburger {
+        display: block;        /* Visible */
+    }
+    
+    /* Hide auth buttons */
+    .auth-buttons {
+        display: none;         /* Hidden */
+    }
+    
+    /* Logo adjustments */
+    .logo {
+        margin-left: -15px;    /* Less negative margin */
+    }
+    
+    .logo img {
+        height: 38px;         /* Slightly smaller */
+    }
+    
+    /* Hero adjustments */
+    .hero h1 {
+        font-size: 2.5rem;    /* Smaller heading */
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;      /* Smaller section heading */
+    }
+    
+    /* Testimonial adjustments */
+    .testimonial {
+        padding: 30px 20px;   /* Less padding */
+    }
+    
+    /* Blog adjustments */
+    .blog-posts {
+        grid-template-columns: 1fr; /* Single column */
+    }
+    
+    .blog-card {
+        max-width: 400px;     /* Limit width */
+        margin: 0 auto;        /* Center */
+    }
+    
+    /* Booking form adjustments */
+    .booking-tabs {
+        flex-direction: column; /* Stack tabs */
+        gap: 10px;             /* Smaller gap */
+    }
+    
+    .booking-form {
+        padding: 20px;         /* Less padding */
+    }
+    
+    .hotel-options {
+        flex-direction: column; /* Stack options */
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .about-content h2 {
+        font-size: 1.8rem;    /* Even smaller heading */
+    }
+    
+    .stat-content h3 {
+        font-size: 1.3rem;    /* Smaller stat heading */
+    }
+    
+    .stat-card {
+        padding: 25px;        /* Less padding */
+    }
+    
+    .logo img {
+        height: 34px;         /* Smaller logo */
+    }
+    
+    header {
+        padding: 15px 0;      /* Less padding */
+    }
+    
+    .hero h1 {
+        font-size: 2rem;      /* Much smaller hero heading */
+    }
+    
+    .hero p {
+        font-size: 1rem;      /* Smaller hero text */
+    }
+    
+    .btn {
+        padding: 10px 20px;   /* Smaller button */
+        font-size: 0.9rem;    /* Smaller text */
+    }
+    
+    .section-title h2 {
+        font-size: 1.8rem;    /* Smaller section heading */
+    }
+    
+    .destination-card {
+        max-width: 350px;     /* Limit width */
+        margin: 0 auto;       /* Center */
+    }
+}

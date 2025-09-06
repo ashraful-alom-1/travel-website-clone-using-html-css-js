@@ -1,0 +1,735 @@
+<!DOCTYPE html> <!-- Declares the document type as HTML5 -->
+<html lang="en"> <!-- Root element with English language attribute -->
+<head>
+    <!-- Contains metadata and document settings -->
+    <meta charset="UTF-8"> <!-- Sets character encoding to UTF-8 for broad compatibility -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures responsive design on mobile devices -->
+    <title>Explorely - Travel Agency</title> <!-- Sets the page title displayed in browser tab -->
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body> <!-- Contains all visible content -->
+
+
+
+    <!-- ============================================================================ -->
+    <!-- Header Section -->
+    <!-- ============================================================================ -->
+    <header id="header"> <!-- Header section with ID for styling and linking -->
+        <div class="container"> <!-- Container for centered content with max-width -->
+            <nav class="navbar"> <!-- Navigation bar for site links -->
+                <a href="index.html" class="logo"> <!-- Logo link to homepage -->
+                    <img src="logo.png" alt="Explorely Travel Agency"> <!-- Logo image with alt text for accessibility -->
+                </a>
+                <ul class="nav-links"> <!-- Unordered list for navigation links -->
+                    <li><a href="#home">Home</a></li> <!-- Home link targeting hero section -->
+                    <li><a href="#about">About Us</a></li> <!-- About link targeting about section -->
+                    <li class="dropdown"> <!-- Dropdown menu for services -->
+                        <a href="#services">Services <i class="fas fa-chevron-down"></i></a> <!-- Main services link with dropdown icon -->
+                        <div class="dropdown-content"> <!-- Dropdown content container -->
+                            <a href="#">Tour Packages</a> <!-- Link to tour packages -->
+                            <a href="#">Custom Trips</a> <!-- Link to custom trips -->
+                            <a href="#">Adventure Tours</a> <!-- Link to adventure tours -->
+                            <a href="#">Romantic Trip</a> <!-- Link to romantic trips -->
+                        </div>
+                    </li>
+                    <li><a href="#blog">Blog</a></li> <!-- Blog link targeting blog section -->
+                    <li><a href="#testimonials">Testimonials</a></li> <!-- Testimonials link targeting testimonials section -->
+                    <li><a href="#booking">Book Now</a></li>
+                    <li><a href="#contact">Contact Us</a></li> <!-- Contact link targeting footer -->
+                    <li class="auth-buttons"> <!-- Container for authentication buttons -->
+                        <button class="btn btn-signup">Sign Up</button> <!-- Sign-up button -->
+                        <button class="btn btn-login">Login</button> <!-- Login button -->
+                    </li>
+                </ul>
+                <div class="hamburger"> <!-- Hamburger menu for mobile navigation -->
+                    <i class="fas fa-bars"></i> <!-- Font Awesome bars icon -->
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <!-- ============================================================================ -->
+    <!-- Hero Section or Home section-->
+    <!-- ============================================================================ -->
+    <section class="hero" id="home"> <!-- Hero section with ID for navigation -->
+        <div class="hero-content"> <!-- Container for hero content -->
+            <h1>Pack Your Bags, Let’s Go!</h1> <!-- Main heading -->
+            <p>Discover amazing destinations with Explorely</p> <!-- Subheading -->
+            <a href="#services" class="btn">Explore Destinations</a> <!-- Call-to-action button linking to services -->
+        </div>
+    </section>
+
+  
+
+<!-- ============================================================================ -->
+<!-- About Section -->
+<!-- ============================================================================ -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <!-- Left side - content -->
+            <div class="about-content">
+                <h2>Explore All Corners of The World With Us</h2>
+                <p class="short-text">Beyond the rolling hills and across the vast oceans, there lies a world waiting to be explored. From the charming streets of historic towns to the breathtaking landscapes of hidden paradises, your next adventure is just a journey away. Let us take you there.</p>
+                <div class="more-text">
+                    <p>A serene river winds through the heart of this enchanting land, nourishing its vibrant landscapes and charming villages. It's a paradise where every moment feels magical, and new experiences come effortlessly to those who seek them.</p>
+                    <p>Even the mightiest explorers cannot predict every twist and turn of the journey. Life is full of untold stories and uncharted paths. But one day, a curious traveler decided to step beyond the familiar and embark on an adventure to discover the wonders of the world.</p>
+                    
+                    <h3>Your Gateway to Extraordinary Journeys</h3>
+                    <p>At <strong>Explorely</strong>, we believe that travel is more than just a trip—it's an experience that transforms you. Whether you dream of wandering through ancient cities, relaxing on pristine beaches, or embarking on thrilling adventures, we are here to turn your travel dreams into reality.</p>
+                    
+                    <h3>Our Mission</h3>
+                    <p>We aim to inspire and empower travelers by offering curated experiences that go beyond the ordinary. Our goal is to connect people with cultures, landscapes, and stories that leave lasting impressions.</p>
+                    
+                    <h3>Why Choose Us?</h3>
+                    <ul>
+                        <li><strong>Handpicked Destinations</strong> – We take you to hidden gems and world-famous landmarks, ensuring a perfect mix of adventure and relaxation.</li>
+                        <li><strong>Personalized Travel Plans</strong> – Every traveler is unique, and so are our tailor-made itineraries.</li>
+                        <li><strong>Trusted Expertise</strong> – With years of experience in the travel industry.</li>
+                        <li><strong>Sustainable & Responsible Tourism</strong> – We promote ethical travel.</li>
+                        <li><strong>24/7 Customer Support</strong> – Our dedicated team is always available.</li>
+                        <li><strong>Exclusive Travel Deals</strong> – We offer the best prices.</li>
+                    </ul>
+                    
+                    <h3>Meet Our Team</h3>
+                    <p>We are a team of passionate travelers, storytellers, and industry experts who believe in creating journeys that leave a lasting impact.</p>
+                    
+                    <h3>Let's Explore Together!</h3>
+                    <p>From breathtaking landscapes to vibrant cultures, <strong>Explorely</strong> is your passport to the world's most unforgettable adventures.</p>
+                </div>
+                <button class="btn read-more-btn">Read more</button>
+            </div>
+            
+            <!-- Right side - content -->
+            <div class="about-stats">
+                <!-- Destinations Card -->
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>150+ Destinations</h3>
+                        <p>Explore our carefully curated collection of breathtaking locations across all continents.</p>
+                        <div class="stat-highlights">
+                            <span class="highlight">Popular: Bali, Switzerland, Japan</span>
+                        </div>
+                    </div>
+                    <div class="stat-wave"></div>
+                </div>
+                
+                <!-- Experiences Card -->
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-icon">
+                        <i class="fas fa-umbrella-beach"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>500+ Experiences</h3>
+                        <p>From luxury resorts to adventurous treks, we have something for every traveler.</p>
+                        <div class="stat-highlights">
+                            <span class="highlight">Trending: Cultural Tours, Hiking, Cruises</span>
+                        </div>
+                    </div>
+                    <div class="stat-wave"></div>
+                </div>
+                
+                <!-- Happy Customers Card -->
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>10,000+ Happy Customers</h3>
+                        <p>Join our community of satisfied travelers who've explored the world with us.</p>
+                        <div class="stat-highlights">
+                            <span class="highlight">98% Satisfaction Rate</span>
+                        </div>
+                    </div>
+                    <div class="stat-wave"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- ============================================================================ -->
+    <!-- Services Section -->
+    <!-- ============================================================================ -->
+    <section class="services" id="services"> <!-- Services section with ID for navigation -->
+        <div class="container"> <!-- Container for centered content -->
+            <div class="section-title"> <!-- Title container -->
+                <h2>WHAT WE SERVE</h2> <!-- Section heading -->
+                <p>We Provide Top Destinations. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> <!-- Section description -->
+            </div>
+            <div class="destinations"> <!-- Grid container for destination cards -->
+                <div class="destination-card"> <!-- Individual destination card -->
+                    <div class="destination-img"> <!-- Image container -->
+                        <img src="tajmahal.png" alt="Tajmahal"> <!-- Destination image -->
+                    </div>
+                    <div class="destination-info"> <!-- Info container -->
+                        <h3>Agra, India</h3> <!-- Destination name -->
+                        <p><strong>Taj Mahal:</strong> Timeless marble and eternal love.</p> <!-- Description -->
+                        <div class="price">₹1,100 / day</div> <!-- Price -->
+                    </div>
+                </div>
+                <div class="destination-card"> <!-- Second destination card -->
+                    <div class="destination-img"> <!-- Image container -->
+                        <img src="mount-fuji-2779020.jpg" alt="Mount-Fuji"> <!-- Destination image -->
+                    </div>
+                    <div class="destination-info"> <!-- Info container -->
+                        <h3> Japan</h3> <!-- Destination name -->
+                        <p><strong>Mount Fuji:</strong> Snow-capped peak and serene landscapes.</p> <!-- Description -->
+                        <div class="price">₹16,700/ 3 Days</div> <!-- Price -->
+                    </div>
+                </div>
+                <div class="destination-card"> <!-- Second destination card -->
+                    <div class="destination-img"> <!-- Image container -->
+                        <img src="pangong-tso-7516717.jpg" alt="pangong lake"> <!-- Destination image -->
+                    </div>
+                    <div class="destination-info"> <!-- Info container -->
+                        <h3>Ladakh, India</h3> <!-- Destination name -->
+                        <p><strong>Pangong Lake:</strong> Crystal waters and rugged mountains.</p> <!-- Description -->
+                        <div class="price">₹15,000/ 3 Days</div> <!-- Price -->
+                    </div>
+                </div>
+                <div class="destination-card"> <!-- Second destination card -->
+                    <div class="destination-img"> <!-- Image container -->
+                        <img src="switzerland-5414899.jpg" alt="Switzerland"> <!-- Destination image -->
+                    </div>
+                    <div class="destination-info"> <!-- Info container -->
+                        <h3>Switzerland</h3> <!-- Destination name -->
+                        <p><strong>Switzerland:</strong> Alpine chalets and turquoise lakes.</p> <!-- Description -->
+                        <div class="price">₹70,000/ 1 week</div> <!-- Price -->
+                    </div>
+                </div>
+                <div class="destination-card"> <!-- Second destination card -->
+                    <div class="destination-img"> <!-- Image container -->
+                        <img src="dubai-3188864.jpg" alt="Dubai"> <!-- Destination image -->
+                    </div>
+                    <div class="destination-info"> <!-- Info container -->
+                        <h3>Dubai</h3> <!-- Destination name -->
+                        <p><strong>Dubai:</strong> Skyscrapers and golden sunsets.</p> <!-- Description -->
+                        <div class="price">₹89,000/ 1 week</div> <!-- Price -->
+                    </div>
+                </div>
+                <div class="destination-card"> <!-- Third destination card -->
+                    <div class="destination-img"> <!-- Image container -->
+                        <img src="rhino-one-horn-.jpg" alt="rhino image"> <!-- Destination image -->
+                    </div>
+                    <div class="destination-info"> <!-- Info container -->
+                        <h3>Kaziranga, Assam, India</h3> <!-- Destination name -->
+                        <p><strong>Kaziranga:</strong> Land of one-horned rhinos and untamed wilderness.</p> <!-- Description -->
+                        <div class="price">₹9,700 / Jeep</div> <!-- Price -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ============================================================================ -->
+    <!-- Blog Section -->
+    <!-- ============================================================================ -->
+    <section class="blog" id="blog"> <!-- Blog section with ID for navigation -->
+        <div class="container"> <!-- Container for centered content -->
+            <div class="section-title"> <!-- Title container -->
+                <h2>TRAVEL BLOG</h2> <!-- Section heading -->
+                <p>Discover travel tips, destination guides, and inspiring stories</p> <!-- Section description -->
+            </div>
+            <div class="blog-posts"> <!-- Grid container for blog posts -->
+                <!-- Blog Post 1 -->
+                <div class="blog-card"> <!-- Individual blog card -->
+                    <div class="blog-img"> <!-- Image container -->
+                        <img src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Packing Tips"> <!-- Blog image -->
+                    </div>
+                    <div class="blog-info"> <!-- Info container -->
+                        <span class="blog-date">June 15, 2023</span> <!-- Blog date -->
+                        <h3>10 Essential Packing Tips for Stress-Free Travel</h3> <!-- Blog title -->
+                        <div class="blog-excerpt"> <!-- Excerpt container -->
+                            <p>Learn how to pack like a pro and never check luggage again with these space-saving techniques...</p> <!-- Short description -->
+                        </div>
+                        <div class="blog-full-content"> <!-- Full content (hidden by default) -->
+                            <p>1. Roll your clothes instead of folding - saves space and reduces wrinkles</p> <!-- Tip 1 -->
+                            <p>2. Use packing cubes to organize different clothing categories</p> <!-- Tip 2 -->
+                            <p>3. Choose versatile, mix-and-match clothing items</p> <!-- Tip 3 -->
+                            <p>4. Always leave 20% empty space for souvenirs</p> <!-- Tip 4 -->
+                            <p>5. Use travel-sized toiletries or reusable containers</p> <!-- Tip 5 -->
+                            <p>6. Place heavy items at the bottom near the wheels</p> <!-- Tip 6 -->
+                            <p>7. Keep medications and essentials in your carry-on</p> <!-- Tip 7 -->
+                            <p>8. Use shoe bags to protect your clothes</p> <!-- Tip 8 -->
+                            <p>9. Bring a collapsible water bottle</p> <!-- Tip 9 -->
+                            <p>10. Never forget a basic first-aid kit</p> <!-- Tip 10 -->
+                        </div>
+                        <button class="btn btn-read-more">Read More</button> <!-- Button to toggle full content -->
+                    </div>
+                </div>
+                <!-- Blog Post 2 -->
+                <div class="blog-card"> <!-- Second blog card -->
+                    <div class="blog-img"> <!-- Image container -->
+                        <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Hidden Gems"> <!-- Blog image -->
+                    </div>
+                    <div class="blog-info"> <!-- Info container -->
+                        <span class="blog-date">May 28, 2024</span> <!-- Blog date -->
+                        <h3>Hidden Gems: Off-the-Beaten-Path Destinations</h3> <!-- Blog title -->
+                        <div class="blog-excerpt"> <!-- Excerpt container -->
+                            <p>Explore these lesser-known but breathtaking locations that most tourists miss...</p> <!-- Short description -->
+                        </div>
+                        <div class="blog-full-content"> <!-- Full content (hidden by default) -->
+                            <p><strong>1. Chefchaouen, Morocco</strong> - The stunning blue-washed city in the Rif Mountains</p> <!-- Destination 1 -->
+                            <p><strong>2. Faroe Islands, Denmark</strong> - Dramatic landscapes with few tourists</p> <!-- Destination 2 -->
+                            <p><strong>3. Jiuzhaigou Valley, China</strong> - Colorful lakes and waterfalls in Sichuan province</p> <!-- Destination 3 -->
+                            <p><strong>4. Lençóis Maranhenses, Brazil</strong> - Desert-like landscape with seasonal rainwater lagoons</p> <!-- Destination 4 -->
+                            <p><strong>5. Svaneti, Georgia</strong> - Medieval towers in the Caucasus Mountains</p> <!-- Destination 5 -->
+                            <p><strong>6. Raja Ampat, Indonesia</strong> - Pristine islands with incredible marine biodiversity</p> <!-- Destination 6 -->
+                            <p><strong>7. Torotoro, Bolivia</strong> - Dinosaur footprints and underground caves</p> <!-- Destination 7 -->
+                            <p><strong>8. The Azores, Portugal</strong> - Volcanic islands with lush landscapes</p> <!-- Destination 8 -->
+                        </div>
+                        <button class="btn btn-read-more">Read More</button> <!-- Button to toggle full content -->
+                    </div>
+                </div>
+                <!-- Blog Post 3 -->
+                <div class="blog-card"> <!-- Third blog card -->
+                    <div class="blog-img"> <!-- Image container -->
+                        <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Budget Travel"> <!-- Blog image -->
+                    </div>
+                    <div class="blog-info"> <!-- Info container -->
+                        <span class="blog-date">March 10, 2025</span> <!-- Blog date -->
+                        <h3>How to Travel the World on a Budget</h3> <!-- Blog title -->
+                        <div class="blog-excerpt"> <!-- Excerpt container -->
+                            <p>Proven strategies to experience more while spending less on your adventures...</p> <!-- Short description -->
+                        </div>
+                        <div class="blog-full-content"> <!-- Full content (hidden by default) -->
+                            <p><strong>1. Travel during shoulder season</strong> - Better prices and fewer crowds</p> <!-- Tip 1 -->
+                            <p><strong>2. Use flight comparison tools</strong> - Skyscanner, Google Flights, Kayak</p> <!-- Tip 2 -->
+                            <p><strong>3. Stay in hostels or guesthouses</strong> - Often half the price of hotels</p> <!-- Tip 3 -->
+                            <p><strong>4. Cook your own meals</strong> - Shop at local markets</p> <!-- Tip 4 -->
+                            <p><strong>5. Use public transportation</strong> - Cheaper than taxis and more authentic</p> <!-- Tip 5 -->
+                            <p><strong>6. Take advantage of free walking tours</strong> - Tip what you can</p> <!-- Tip 6 -->
+                            <p><strong>7. Get city tourism cards</strong> - Often include transport and attractions</p> <!-- Tip 7 -->
+                            <p><strong>8. Volunteer with Workaway or WWOOF</strong> - Free accommodation options</p> <!-- Tip 8 -->
+                            <p><strong>9. Use student/youth discounts</strong> - Even if you're not young, some still apply</p> <!-- Tip 9 -->
+                            <p><strong>10. Choose cheaper destinations</strong> - Southeast Asia over Western Europe</p> <!-- Tip 10 -->
+                        </div>
+                        <button class="btn btn-read-more">Read More</button> <!-- Button to toggle full content -->
+                    </div>
+                </div>
+            </div>
+            <div class="view-all"> <!-- Container for view all button -->
+                <a href="#" class="btn">View All Posts</a> <!-- Link to view all blog posts -->
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ============================================================================ -->
+    <!-- Testimonials Section -->
+    <!-- ============================================================================ -->
+    <section class="testimonials" id="testimonials"> <!-- Testimonials section with ID for navigation -->
+        <div class="container"> <!-- Container for centered content -->
+            <div class="section-title"> <!-- Title container -->
+                <h2>HAPPY CUSTOMER</h2> <!-- Section heading -->
+                <p>Testimonials from our satisfied travelers</p> <!-- Section description -->
+            </div>
+            <div class="testimonial-slider"> <!-- Slider container for testimonials -->
+                <div class="testimonial active"> <!-- First testimonial (active by default) -->
+                    <img src="imran.jpg" alt="Aaliyah Fatima"> <!-- Reviewer image -->
+                    <h4>Imran Hussain</h4> <!-- Reviewer name -->
+                    <p class="position">Teacher</p> <!-- Reviewer position -->
+                    <div class="rating">★★★★★</div> <!-- Star rating -->
+                    <p class="quote">"As an educator, I truly appreciate how this platform makes travel planning seamless and stress-free. The user-friendly interface and detailed guides help me explore new destinations with confidence. Highly recommended!"</p> <!-- Testimonial text -->
+                </div>
+                <div class="testimonial"> <!-- Second testimonial -->
+                    <img src="Ashraful.jpg" alt="Ashraful Alom"> <!-- Reviewer image -->
+                    <h4>Ashraful Alom</h4> <!-- Reviewer name -->
+                    <p class="position">Travel Blogger</p> <!-- Reviewer position -->
+                    <div class="rating">★★★★★</div> <!-- Star rating -->
+                    <p class="quote">"The trip was flawlessly organized, making travel seamless and stress-free. Every detail was perfect, allowing me to enjoy the journey with confidence. Highly recommended!"</p> <!-- Testimonial text -->
+                </div>
+                <div class="testimonial"> <!-- Third testimonial -->
+                    <img src="photographer.jpg" alt="Faizan Ahmed"> <!-- Reviewer image -->
+                    <h4>Faizan Ahmed</h4> <!-- Reviewer name -->
+                    <p class="position">Photographer</p> <!-- Reviewer position -->
+                    <div class="rating">★★★★☆</div> <!-- Star rating -->
+                    <p class="quote">"Incredible destinations and top-notch guides made this journey truly unforgettable. As a photographer, I loved capturing every moment. Can’t wait to travel with them again!"</p> <!-- Testimonial text -->
+                </div>
+                <div class="testimonial"> <!-- Third testimonial -->
+                    <img src="arifur.png" alt="Samira Hussain"> <!-- Reviewer image -->
+                    <h4>Arifur Rahman</h4> <!-- Reviewer name -->
+                    <p class="position">Businessman</p> <!-- Reviewer position -->
+                    <div class="rating">★★★★★</div> <!-- Star rating -->
+                    <p class="quote">"A wonderfully planned trip with amazing destinations and great service! My wife really loved this experience, and as a Businessman, I felt completely stress-free. Would love to travel with them again!"</p> <!-- Testimonial text -->
+                </div>
+                <div class="dots"> <!-- Container for slider navigation dots -->
+                    <span class="dot active"></span> <!-- Active dot for first testimonial -->
+                    <span class="dot"></span> <!-- Dot for second testimonial -->
+                    <span class="dot"></span> <!-- Dot for third testimonial -->
+                    <span class="dot"></span> <!-- Dot for fourth testimonial -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!--=============================================================================-->
+<!--Booking section-->
+<!--=============================================================================-->
+
+
+<section class="booking" id="booking">
+    <div class="container">
+        <div class="section-title">
+            <h2>Book Your Journey</h2>
+            <p>Plan your perfect trip with our various travel options</p>
+        </div>
+        <div class="booking-tabs">
+            <button class="tab-btn active" data-tab="flights">Flights</button>
+            <button class="tab-btn" data-tab="hotels">Hotels</button>
+            <button class="tab-btn" data-tab="cabs">Cabs</button>
+            <button class="tab-btn" data-tab="trains">Trains</button>
+            <button class="tab-btn" data-tab="cruises">Cruises</button>
+        </div>
+        
+        <!-- Flights Tab -->
+        <div class="booking-form active" id="flights-tab">
+            <form id="flightBookingForm">
+                <div class="form-group">
+                    <label for="flight-from">From</label>
+                    <input type="text" id="flight-from" name="from" placeholder="Departure city" required>
+                </div>
+                <div class="form-group">
+                    <label for="flight-to">To</label>
+                    <input type="text" id="flight-to" name="to" placeholder="Destination city" required>
+                </div>
+                <div class="form-group">
+                    <label for="departure-date">Departure Date</label>
+                    <input type="date" id="departure-date" name="departure-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="passengers">Passengers</label>
+                    <input type="number" id="passengers" name="passengers" min="1" max="10" value="1" required>
+                </div>
+                <button type="submit" class="btn">Search Flights</button>
+            </form>
+        </div>
+        
+        <!-- Hotels Tab -->
+        <div class="booking-form" id="hotels-tab">
+            <form id="hotelBookingForm">
+                <div class="form-group">
+                    <label for="hotel-destination">Destination</label>
+                    <input type="text" id="hotel-destination" name="destination" placeholder="e.g., Paris" required>
+                </div>
+                <div class="form-group">
+                    <label for="check-in-date">Check-in Date</label>
+                    <input type="date" id="check-in-date" name="check-in-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="check-out-date">Check-out Date</label>
+                    <input type="date" id="check-out-date" name="check-out-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Guests</label>
+                    <input type="number" id="guests" name="guests" min="1" max="10" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label>Hotel Category (Optional)</label>
+                    <div class="hotel-options">
+                        <div class="hotel-option">
+                            <input type="radio" id="normal-hotel" name="hotel-category" value="normal">
+                            <label for="normal-hotel">Regular</label>
+                        </div>
+                        <div class="hotel-option">
+                            <input type="radio" id="3star-hotel" name="hotel-category" value="3star">
+                            <label for="3star-hotel">3 Star</label>
+                        </div>
+                        <div class="hotel-option">
+                            <input type="radio" id="5star-hotel" name="hotel-category" value="5star">
+                            <label for="5star-hotel">5 Star</label>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn">Search Hotels</button>
+            </form>
+        </div>
+        
+        <!-- Cabs Tab -->
+        <div class="booking-form" id="cabs-tab">
+            <form id="cabBookingForm">
+                <div class="form-group">
+                    <label for="pickup-location">Pickup Location</label>
+                    <input type="text" id="pickup-location" name="pickup-location" placeholder="e.g., Airport" required>
+                </div>
+                <div class="form-group">
+                    <label for="dropoff-location">Drop-off Location</label>
+                    <input type="text" id="dropoff-location" name="dropoff-location" placeholder="e.g., Hotel" required>
+                </div>
+                <div class="form-group">
+                    <label for="pickup-date">Pickup Date</label>
+                    <input type="date" id="pickup-date" name="pickup-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="passengers-cab">Passengers</label>
+                    <input type="number" id="passengers-cab" name="passengers" min="1" max="6" value="1" required>
+                </div>
+                <button type="submit" class="btn">Search Cabs</button>
+            </form>
+        </div>
+        
+        <!-- Trains Tab -->
+        <div class="booking-form" id="trains-tab">
+            <form id="trainBookingForm">
+                <div class="form-group">
+                    <label for="train-from">From</label>
+                    <input type="text" id="train-from" name="from" placeholder="Departure city" required>
+                </div>
+                <div class="form-group">
+                    <label for="train-to">To</label>
+                    <input type="text" id="train-to" name="to" placeholder="Destination city" required>
+                </div>
+                <div class="form-group">
+                    <label for="train-date">Travel Date</label>
+                    <input type="date" id="train-date" name="travel-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="train-passengers">Passengers</label>
+                    <input type="number" id="train-passengers" name="passengers" min="1" max="10" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="train-class">Class</label>
+                    <select id="train-class" name="class">
+                        <option value="general">General</option>
+                        <option value="sleeper">Sleeper</option>
+                        <option value="3ac">3AC</option>
+                        <option value="2ac">2AC</option>
+                        <option value="1ac">1AC</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Search Trains</button>
+            </form>
+        </div>
+        
+        <!-- Cruises Tab -->
+        <div class="booking-form" id="cruises-tab">
+            <form id="cruiseBookingForm">
+                <div class="form-group">
+                    <label for="cruise-destination">Destination</label>
+                    <input type="text" id="cruise-destination" name="destination" placeholder="e.g., Mediterranean" required>
+                </div>
+                <div class="form-group">
+                    <label for="cruise-date">Departure Date</label>
+                    <input type="date" id="cruise-date" name="departure-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="cruise-passengers">Passengers</label>
+                    <input type="number" id="cruise-passengers" name="passengers" min="1" max="10" value="1" required>
+                </div>
+                
+                <div class="cruise-packages">
+                    <h4>Available Cruise Packages</h4>
+                    
+                    <div class="cruise-package">
+                        <input type="radio" id="package1" name="cruise-package" value="package1">
+                        <label for="package1">
+                            <h4>Mediterranean Explorer</h4>
+                            <p>5 Days / 4 Nights</p>
+                            <p>Visiting: Barcelona, Rome, Santorini</p>
+                            <p>₹60,000 for 4 people</p>
+                        </label>
+                    </div>
+                    
+                    <div class="cruise-package">
+                        <input type="radio" id="package2" name="cruise-package" value="package2">
+                        <label for="package2">
+                            <h4>Caribbean Paradise</h4>
+                            <p>7 Days / 6 Nights</p>
+                            <p>Visiting: Miami, Bahamas, Jamaica</p>
+                            <p>₹85,000 for 4 people</p>
+                        </label>
+                    </div>
+                    
+                    <div class="cruise-package">
+                        <input type="radio" id="package3" name="cruise-package" value="package3">
+                        <label for="package3">
+                            <h4>Alaskan Adventure</h4>
+                            <p>4 Days / 3 Nights</p>
+                            <p>Visiting: Vancouver, Juneau, Skagway</p>
+                            <p>₹45,000 for 2 people</p>
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn">Book Cruise</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- ============================================================================ -->
+    <!-- FAQ Section -->
+    <!-- ============================================================================ -->
+    <section class="faq" id="faq"> <!-- FAQ section with ID for navigation -->
+        <div class="container"> <!-- Container for centered content -->
+            <div class="section-title"> <!-- Title container -->
+                <h2>FAQ</h2> <!-- Section heading -->
+                <p>Frequently Asked Questions</p> <!-- Section description -->
+            </div>
+            <div class="faq-container"> <!-- Grid container for FAQ items -->
+                <div class="faq-item"> <!-- Individual FAQ item -->
+                    <h3>How do I download and register?</h3> <!-- Question -->
+                    <p>Download our app <strong>Explorely</strong> from the App Store or Google Play Store, open it, and follow the steps to create your account. You'll be ready to explore in minutes!</p> <!-- Answer -->
+                    
+                </div>
+                <div class="faq-item"> <!-- Second FAQ item -->
+                    <h3>How to create your paypal account?</h3> <!-- Question -->
+                    <p>Visit paypal.com and follow the registration process.</p> <!-- Answer -->
+                </div>
+                <div class="faq-item"> <!-- Third FAQ item -->
+                    <h3>What payment methods do you accept?</h3> <!-- Question -->
+                    <p>We accept all major credit cards, PayPal, and bank transfers.</p> <!-- Answer -->
+                </div>
+                <div class="faq-item"> <!-- Fourth FAQ item -->
+                    <h3>Can I cancel my booking?</h3> <!-- Question -->
+                    <p>Yes, cancellations are possible up to 30 days before departure with a full refund.</p> <!-- Answer -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ============================================================================ -->
+    <!-- Footer Section -->
+    <!-- ============================================================================ -->
+    <footer id="contact"> <!-- Footer section with ID for navigation -->
+        <div class="container"> <!-- Container for centered content -->
+            <div class="footer-content"> <!-- Grid container for footer columns -->
+                <div class="footer-column"> <!-- First column -->
+                    <h3>Explorely</h3> <!-- Footer heading -->
+                    <p>Making travel accessible and memorable for everyone.</p> <!-- Description -->
+                    <div class="social-links"> <!-- Container for social media links -->
+                        <a href="#"><i class="fab fa-facebook-f"></i></a> <!-- Facebook link -->
+                        <a href="#"><i class="fab fa-x"></i></a> <!-- X link -->
+                        <a href="#"><i class="fab fa-instagram"></i></a> <!-- Instagram link -->
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a> <!-- LinkedIn link -->
+                        <a href="#"><i class="fab fa-whatsapp"></i></a> <!-- Whatsapp link -->
+                        <a href="#"><i class="fab fa-youtube"></i></a> <!-- YouTube link -->
+                    </div>
+                </div>
+                <div class="footer-column"> <!-- Second column -->
+                    <h3>Quick Links</h3> <!-- Footer heading -->
+                    <ul class="footer-links"> <!-- Unordered list for links -->
+                        <li><a href="#home">Home</a></li> <!-- Home link -->
+                        <li><a href="#about">About Us</a></li> <!-- About link -->
+                        <li><a href="#services">Services</a></li> <!-- Services link -->
+                        <li><a href="#blog">Blog</a></li> <!-- Blog link -->
+                        <li><a href="#contact">Contact Us</a></li> <!-- Contact link -->
+                    </ul>
+                </div>
+                <div class="footer-column"> <!-- Third column -->
+                    <h3>Contact Us</h3> <!-- Footer heading -->
+                    <ul class="footer-links"> <!-- Unordered list for contact info -->
+                        <li><i class="fas fa-map-marker-alt"></i> Bongaigaon, Assam, INDIA</li> <!-- Address -->
+                        <li><i class="fas fa-phone"></i> +91 123456789</li> <!-- Phone number -->
+                        <li><i class="fas fa-envelope"></i> ashraful.abh@gmail.com</li> <!-- Email -->
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom"> <!-- Bottom section of footer -->
+                <p>© 2025 Explorely. All Rights Reserved.</p> <!-- Copyright notice -->
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- ============================================================================ -->
+    <!-- Modal Sections or account create section -->
+    <!-- ============================================================================ -->
+    <div class="modal" id="signupModal"> <!-- Sign-up modal with ID -->
+        <div class="modal-content"> <!-- Modal content container -->
+            <span class="close-modal">×</span> <!-- Close button -->
+            <h2>Create Your Account</h2> <!-- Modal heading -->
+            <form id="signupForm"> <!-- Sign-up form with ID -->
+                <div class="form-group"> <!-- Form field container -->
+                    <label for="name">Full Name</label> <!-- Label for name input -->
+                    <input type="text" id="name" name="name" required> <!-- Text input for name -->
+                </div>
+                <div class="form-group"> <!-- Form field container -->
+                    <label for="email">Email</label> <!-- Label for email input -->
+                    <input type="email" id="email" name="email" required> <!-- Email input -->
+                </div>
+                <div class="form-group"> <!-- Form field container -->
+                    <label for="password">Password</label> <!-- Label for password input -->
+                    <input type="password" id="password" name="password" required> <!-- Password input -->
+                    <small>Minimum 8 characters</small> <!-- Hint text -->
+                </div>
+                <div class="form-group"> <!-- Form field container -->
+                    <label for="confirm-password">Confirm Password</label> <!-- Label for confirm password input -->
+                    <input type="password" id="confirm-password" name="confirm-password" required> <!-- Confirm password input -->
+                </div>
+                <button type="submit" class="btn">Sign Up</button> <!-- Submit button -->
+                <p class="form-footer">Already have an account? <a href="#" class="switch-to-login">Login</a></p> <!-- Link to switch to login -->
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="loginModal"> <!-- Login modal with ID -->
+        <div class="modal-content"> <!-- Modal content container -->
+            <span class="close-modal">×</span> <!-- Close button -->
+            <h2>Welcome Back</h2> <!-- Modal heading -->
+            <form id="loginForm"> <!-- Login form with ID -->
+                <div class="form-group"> <!-- Form field container -->
+                    <label for="login-email">Email</label> <!-- Label for email input -->
+                    <input type="email" id="login-email" name="email" required> <!-- Email input -->
+                </div>
+                <div class="form-group"> <!-- Form field container -->
+                    <label for="login-password">Password</label> <!-- Label for password input -->
+                    <input type="password" id="login-password" name="password" required> <!-- Password input -->
+                </div>
+                <div class="form-group remember"> <!-- Checkbox container -->
+                    <input type="checkbox" id="remember" name="remember"> <!-- Checkbox for remember me -->
+                    <label for="remember">Remember me</label> <!-- Label for checkbox -->
+                </div>
+                <button type="submit" class="btn">Login</button> <!-- Submit button -->
+                <p class="form-footer">Don't have an account? <a href="#" class="switch-to-signup">Sign Up</a></p> <!-- Link to switch to sign-up -->
+            </form>
+        </div>
+    </div>
+
+
+    
+    <!-- ============================================================================ -->
+    <!-- Scripts -->
+    <!-- ============================================================================ -->
+    <script src="script.js"></script> <!-- Links to custom JavaScript file -->
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+    });
+</script>
+
+</body>
+</html>
+
