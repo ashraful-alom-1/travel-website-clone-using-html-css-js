@@ -507,6 +507,46 @@ function initBlogReadMore() {
 
 
 
+
+
+// ==============================================
+// BLOG VIEW ALL / VIEW LESS FUNCTIONALITY
+// ==============================================
+function initBlogViewToggle() {
+    const toggleBtn = document.getElementById("toggle-posts");
+    const extraPosts = document.querySelectorAll(".extra-post");
+
+    if (!toggleBtn || extraPosts.length === 0) return;
+
+    toggleBtn.addEventListener("click", function () {
+        const isHidden = extraPosts[0].style.display === "none";
+
+        extraPosts.forEach(post => {
+            post.style.display = isHidden ? "block" : "none";
+        });
+
+        toggleBtn.textContent = isHidden ? "View Less Posts" : "View All Posts";
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ==============================================
 // ABOUT SECTION READ MORE FUNCTIONALITY
 // ==============================================
@@ -721,6 +761,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', updateActiveNav);
     initAuthSystem();
     initBlogReadMore();
+    initBlogViewToggle(); // 👈 yahi add karna hai
     initAboutReadMore();
     initBookingSystem();
     initSlider(); // Initialize testimonial slider
